@@ -28,4 +28,10 @@ public class ProductController {
         List<ProductDto> productDtoList = productService.getAllProducts();
         return ResponseEntity.ok(productDtoList);
     }
+
+    @GetMapping("/products/{category}")
+    public ResponseEntity<List<ProductDto>> getByCategory(@PathVariable String category) {
+      List<ProductDto> listByCategory = productService.getByCategory(category);
+        return  ResponseEntity.ok(listByCategory);
+    }
 }
