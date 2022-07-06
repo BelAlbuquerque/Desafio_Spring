@@ -47,6 +47,13 @@ public class ProductController {
         return ResponseEntity.ok(listFreeShippingCategory);
     }
 
+    @GetMapping("/products/freeshipping/{prestige}")
+    public ResponseEntity<List<ProductDto>> getByShippingAndPrestige(
+            @PathVariable String prestige) {
+        System.out.println(prestige);
+        List<ProductDto> listFreeShippingPrestige = ProductDto.convertDto(
+                productService.getByShipping(productService.getByPrestige(prestige))
+        );
+        return ResponseEntity.ok(listFreeShippingPrestige);
+    }
 }
-// products/esporte/bolean
-// products/boolean/string

@@ -32,7 +32,6 @@ public class ProductServiceImp implements ProductService{
         List<Product> productByCategoryList = productList.stream()
                 .filter(product -> product.getCategory().equalsIgnoreCase(category))
                 .collect(Collectors.toList());
-        System.out.println(category);
         return productByCategoryList;
     }
 
@@ -55,4 +54,3 @@ public class ProductServiceImp implements ProductService{
 
 
 }
-//getByFreeSh(getAll())
