@@ -50,7 +50,6 @@ public class ProductController {
     @GetMapping("/products/freeshipping/{prestige}")
     public ResponseEntity<List<ProductDto>> getByShippingAndPrestige(
             @PathVariable String prestige) {
-        System.out.println(prestige);
         List<ProductDto> listFreeShippingPrestige = ProductDto.convertDto(
                 productService.getByShipping(productService.getByPrestige(prestige))
         );
