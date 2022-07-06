@@ -1,4 +1,4 @@
 package com.grupo8.ecomerce.repository;
 
-public class ProdutoRepository {
+public class ProductRepository {
 }
