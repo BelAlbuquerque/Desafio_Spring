@@ -32,4 +32,15 @@ public class ProductRepository {
         }
     }
 
+    public List<Product> getAllProducts() {
+        ObjectMapper mapper = new ObjectMapper();
+        List<Product> productList = null;
+
+        try {
+            productList = Arrays.asList(mapper.readValue(new File(pathProduct), Product[].class));
+        } catch (Exception e ) {
+            System.out.println(e.getMessage());
+        }
+        return  productList;
+    }
 }
