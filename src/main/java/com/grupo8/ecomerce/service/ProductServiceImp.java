@@ -27,4 +27,13 @@ public class ProductServiceImp implements ProductService{
                 .map(ProductDto::new).collect(Collectors.toList());
         return productDtosList;
     }
+
+    @Override
+    public List<ProductDto> getByCategory(String category) {
+        List<Product> productList = productRepository.getAllProducts();
+        List<ProductDto> productDtosList = productList.stream()
+                .filter(product -> product.getCategory().equalsIgnoreCase(category))
+                .map(ProductDto::new).collect(Collectors.toList());
+        return productDtosList;
+    }
 }

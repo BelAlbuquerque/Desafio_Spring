@@ -9,4 +9,6 @@ public interface ProductService {
 
     void createProduct(Product newProduct);
     List<ProductDto> getAllProducts();
+
+    List<ProductDto> getByCategory(String category);
 }
