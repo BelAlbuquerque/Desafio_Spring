@@ -36,6 +36,7 @@ public class ProductServiceImp implements ProductService{
         return productByCategoryList;
     }
 
+    @Override
     public List<Product> getByShipping(List<Product> productList) { // category avaliacao
         List<Product> productsFreeShipping = productList.stream()
                 .filter(product -> product.getFreeShipping() == true)
@@ -43,6 +44,7 @@ public class ProductServiceImp implements ProductService{
         return productsFreeShipping;
     }
 
+    @Override
     public List<Product> getByPrestige(String prestige) {
         List<Product> productList = productRepository.getAllProducts();
         List<Product> productsPrestige = productList.stream()
