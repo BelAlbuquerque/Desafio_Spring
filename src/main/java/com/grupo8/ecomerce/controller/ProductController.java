@@ -17,6 +17,7 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void createProduct(@RequestBody Product newProduct){
@@ -25,13 +26,15 @@ public class ProductController {
 
     @GetMapping("/products")
     public ResponseEntity<List<ProductDto>> getAllProducts() {
-        List<ProductDto> productDtoList = productService.getAllProducts();
+        List<ProductDto> productDtoList = ProductDto.convertDto(productService.getAllProducts());
         return ResponseEntity.ok(productDtoList);
     }
 
     @GetMapping("/products/{category}")
     public ResponseEntity<List<ProductDto>> getByCategory(@PathVariable String category) {
-      List<ProductDto> listByCategory = productService.getByCategory(category);
+      List<ProductDto> listByCategory = ProductDto.convertDto(
+              productService.getByCategory(category)
+      );;
         return  ResponseEntity.ok(listByCategory);
     }
 }

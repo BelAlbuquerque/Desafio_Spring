@@ -21,19 +21,18 @@ public class ProductServiceImp implements ProductService{
     }
 
     @Override
-    public List<ProductDto> getAllProducts() {
+    public List<Product> getAllProducts() {
         List<Product> productList = productRepository.getAllProducts();
-        List<ProductDto> productDtosList = productList.stream()
-                .map(ProductDto::new).collect(Collectors.toList());
-        return productDtosList;
+        return productList;
     }
 
     @Override
-    public List<ProductDto> getByCategory(String category) {
+    public List<Product> getByCategory(String category) {
         List<Product> productList = productRepository.getAllProducts();
-        List<ProductDto> productDtosList = productList.stream()
+        List<Product> productByCategoryList = productList.stream()
                 .filter(product -> product.getCategory().equalsIgnoreCase(category))
-                .map(ProductDto::new).collect(Collectors.toList());
-        return productDtosList;
+                .collect(Collectors.toList());
+        return productByCategoryList;
     }
+
 }
