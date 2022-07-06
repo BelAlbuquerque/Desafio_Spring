@@ -32,7 +32,25 @@ public class ProductServiceImp implements ProductService{
         List<Product> productByCategoryList = productList.stream()
                 .filter(product -> product.getCategory().equalsIgnoreCase(category))
                 .collect(Collectors.toList());
+        System.out.println(category);
         return productByCategoryList;
     }
 
+    public List<Product> getByShipping(List<Product> productList) { // category avaliacao
+        List<Product> productsFreeShipping = productList.stream()
+                .filter(product -> product.getFreeShipping() == true)
+                .collect(Collectors.toList());
+        return productsFreeShipping;
+    }
+
+    public List<Product> getByPrestige(String prestige) {
+        List<Product> productList = productRepository.getAllProducts();
+        List<Product> productsPrestige = productList.stream()
+                .filter(product -> product.getPrestige().equals(prestige))
+                .collect(Collectors.toList());
+        return productsPrestige;
+    }
+
+
 }
+//getByFreeSh(getAll())
