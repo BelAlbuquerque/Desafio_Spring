@@ -37,4 +37,16 @@ public class ProductController {
       );;
         return  ResponseEntity.ok(listByCategory);
     }
+
+    @GetMapping("/products/freeshipping/")
+    public ResponseEntity<List<ProductDto>> getByCategoryAndShipping(
+            @RequestParam String category) {
+        List<ProductDto> listFreeShippingCategory = ProductDto.convertDto(
+                productService.getByShipping(productService.getByCategory(category))
+        );
+        return ResponseEntity.ok(listFreeShippingCategory);
+    }
+
 }
+// products/esporte/bolean
+// products/boolean/string
