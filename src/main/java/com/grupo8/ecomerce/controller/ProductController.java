@@ -20,7 +20,7 @@ public class ProductController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void createProduct(@RequestBody Product newProduct){
+    public void createProduct(@RequestBody Product newProduct) {
         productService.createProduct(newProduct);
     }
 
@@ -32,18 +32,16 @@ public class ProductController {
 
     @GetMapping("/products/{category}")
     public ResponseEntity<List<ProductDto>> getByCategory(@PathVariable String category) {
-      List<ProductDto> listByCategory = ProductDto.convertDto(
-              productService.getByCategory(category)
-      );;
-        return  ResponseEntity.ok(listByCategory);
+        List<ProductDto> listByCategory = ProductDto.convertDto(
+                productService.getByCategory(category));
+        return ResponseEntity.ok(listByCategory);
     }
 
     @GetMapping("/products/freeshipping/")
     public ResponseEntity<List<ProductDto>> getByCategoryAndShipping(
             @RequestParam String category) {
         List<ProductDto> listFreeShippingCategory = ProductDto.convertDto(
-                productService.getByShipping(productService.getByCategory(category))
-        );
+                productService.getByShipping(productService.getByCategory(category)));
         return ResponseEntity.ok(listFreeShippingCategory);
     }
 
@@ -51,8 +49,15 @@ public class ProductController {
     public ResponseEntity<List<ProductDto>> getByShippingAndPrestige(
             @PathVariable String prestige) {
         List<ProductDto> listFreeShippingPrestige = ProductDto.convertDto(
-                productService.getByShipping(productService.getByPrestige(prestige))
-        );
+                productService.getByShipping(productService.getByPrestige(prestige)));
         return ResponseEntity.ok(listFreeShippingPrestige);
+    }
+
+    @GetMapping("products/orderby/{number}")
+    public ResponseEntity<List<ProductDto>> getAllProductsOrderByName(
+            @PathVariable int number
+    ) {
+        List<ProductDto> listOrderByName = ProductDto.convertDto(productService.getAllProductsOrder(number));
+        return ResponseEntity.ok(listOrderByName);
     }
 }

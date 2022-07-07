@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Product {
+public class Product{
 
     private Long productId;
     private String name;
@@ -18,5 +18,4 @@ public class Product {
     private Integer quantity;
     private Boolean freeShipping;
     private String prestige;
-
 }
