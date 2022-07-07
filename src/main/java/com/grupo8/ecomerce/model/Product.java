@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Product {
+public class Product implements Comparable<Product> {
 
     private Long productId;
     private String name;

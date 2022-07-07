@@ -1,6 +1,5 @@
 package com.grupo8.ecomerce.service;
 
-import com.grupo8.ecomerce.dto.ProductDto;
 import com.grupo8.ecomerce.model.Product;
 
 import java.util.List;
@@ -16,4 +15,6 @@ public interface ProductService {
     List<Product> getByShipping(List<Product> list);
 
     List<Product> getByPrestige(String prestige);
+
+    List<Product> getAllProductsOrder(int paramOrder);
 }
