@@ -53,9 +53,11 @@ public class ProductController {
         return ResponseEntity.ok(listFreeShippingPrestige);
     }
 
-    @GetMapping("products/orderbyname")
-    public ResponseEntity<List<ProductDto>> getAllProductsOrderByName() {
-        List<ProductDto> listOrderByName = ProductDto.convertDto(productService.getAllProductsOrderByName());
+    @GetMapping("products/orderby/{number}")
+    public ResponseEntity<List<ProductDto>> getAllProductsOrderByName(
+            @PathVariable int number
+    ) {
+        List<ProductDto> listOrderByName = ProductDto.convertDto(productService.getAllProductsOrder(number));
         return ResponseEntity.ok(listOrderByName);
     }
 }
