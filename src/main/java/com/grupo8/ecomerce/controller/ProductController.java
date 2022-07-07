@@ -37,4 +37,22 @@ public class ProductController {
       );;
         return  ResponseEntity.ok(listByCategory);
     }
+
+    @GetMapping("/products/freeshipping/")
+    public ResponseEntity<List<ProductDto>> getByCategoryAndShipping(
+            @RequestParam String category) {
+        List<ProductDto> listFreeShippingCategory = ProductDto.convertDto(
+                productService.getByShipping(productService.getByCategory(category))
+        );
+        return ResponseEntity.ok(listFreeShippingCategory);
+    }
+
+    @GetMapping("/products/freeshipping/{prestige}")
+    public ResponseEntity<List<ProductDto>> getByShippingAndPrestige(
+            @PathVariable String prestige) {
+        List<ProductDto> listFreeShippingPrestige = ProductDto.convertDto(
+                productService.getByShipping(productService.getByPrestige(prestige))
+        );
+        return ResponseEntity.ok(listFreeShippingPrestige);
+    }
 }

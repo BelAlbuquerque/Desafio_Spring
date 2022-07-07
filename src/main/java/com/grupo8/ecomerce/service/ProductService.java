@@ -13,4 +13,7 @@ public interface ProductService {
 
     List<Product> getByCategory(String category);
 
+    List<Product> getByShipping(List<Product> list);
+
+    List<Product> getByPrestige(String prestige);
 }
