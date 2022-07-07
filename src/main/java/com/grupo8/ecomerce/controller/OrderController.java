@@ -15,6 +15,6 @@ public class OrderController {
 
     @GetMapping
     public ResponseEntity<Double> getTotalPrice() {
-
+    return null;
     }
 }
