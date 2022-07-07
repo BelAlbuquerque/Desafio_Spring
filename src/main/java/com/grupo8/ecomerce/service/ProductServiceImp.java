@@ -90,14 +90,22 @@ public class ProductServiceImp implements ProductService {
     @Override
     public void updateProducts(List<OrderRequestDto> orderRequestDtoslist) {
         List<Product> productList = getAllProducts();
-        List<Product> updatedProductList = productList.stream().map(product -> orderRequestDtoslist.stream()
-                .map(orderRequestDto -> {
-                    if(orderRequestDto.getProductId().equals(product.getProductId())){
-                        product.setQuantity(product.getQuantity() - orderRequestDto.getQuantity());
-                    }
-                return product
-        })).collect(Collectors.toList());
-        productRepository.createProduct(updatedProductList);
+        List<Product> updatedProductList = productList.stream().map(product -> {
+            List<OrderRequestDto> founded = orderRequestDtoslist.stream()
+                    .filter(order -> order.getProductId().equals(product.getProductId())).collect(Collectors.toList());
+            if (founded.size() != 0) {
+                if (product.getQuantity() >= founded.get(0).getQuantity()) {
+                    product.setQuantity(product.getQuantity() - founded.get(0).getQuantity());
+                    return product;
+                }
+//                } else {
+//                    throw new Exception("estoque insuficiente");
+//                }
+            }
+            return product;
+        }).collect(Collectors.toList());
+
+        productRepository.updateProducts(updatedProductList);
     }
 
     //CRUD --> getProductById()
