@@ -1,5 +1,7 @@
 package com.grupo8.ecomerce.service;
 
+import com.grupo8.ecomerce.dto.OrderRequestDto;
+import com.grupo8.ecomerce.dto.OrderResponseDto;
 import com.grupo8.ecomerce.model.Order;
 import com.grupo8.ecomerce.model.Product;
 import com.grupo8.ecomerce.repository.ProductRepository;
@@ -14,24 +16,26 @@ public class OrderServiceImp implements OrderService {
     @Autowired
     private ProductRepository productRepository;
 
+//    @Override
+//    public Double getTotalPrice(Order order) {
+//        return null;
+//    }
+
     @Override
-    public Double getTotalPrice(Order order) {
-        return null;
+    public OrderResponseDto createOrder(List<OrderRequestDto> orderRequestDtoList) {
+        orderRequestDtoList.stream().forEach(orderRequestDto -> {
+            verifyIfEnoughQuantity(orderRequestDto.getQuantity(), orderRequestDto.getProductId());
+        });
     }
-    // @Override
-    //  public Double getTotalPrice(Order order) {
-    //  return order.getProductList().stream()
-    //   .mapToDouble(Product::getPrice)
-    //.sum();
 
     private boolean verifyIfProductExist(Long productId) {
         List<Product> productList = productRepository.getAllProducts();
         return productList.stream().anyMatch(product -> product.getProductId().equals(productId));
 
     }
-    private void verifyIfQuantity(Integer quantity,Long productId){
+    private void verifyIfEnoughQuantity(Integer quantity,Long productId){
         if(verifyIfProductExist(productId)){
-           updateQuantityProduct();
+           updateQuantityProduct(quantity);
         }
 
     }
