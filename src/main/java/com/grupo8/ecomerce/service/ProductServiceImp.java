@@ -1,5 +1,6 @@
 package com.grupo8.ecomerce.service;
 
+import com.grupo8.ecomerce.dto.OrderRequestDto;
 import com.grupo8.ecomerce.dto.ProductDto;
 import com.grupo8.ecomerce.model.Product;
 import com.grupo8.ecomerce.repository.ProductRepository;
@@ -85,4 +86,19 @@ public class ProductServiceImp implements ProductService {
                 .sorted((product01, product02) -> -product01.getPrice().compareTo(product02.getPrice()))
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public void updateProducts(List<OrderRequestDto> orderRequestDtoslist) {
+        List<Product> productList = getAllProducts();
+        List<Product> updatedProductList = productList.stream().map(product -> orderRequestDtoslist.stream()
+                .map(orderRequestDto -> {
+                    if(orderRequestDto.getProductId().equals(product.getProductId())){
+                        product.setQuantity(product.getQuantity() - orderRequestDto.getQuantity());
+                    }
+                return product
+        })).collect(Collectors.toList());
+        productRepository.createProduct(updatedProductList);
+    }
+
+    //CRUD --> getProductById()
 }
