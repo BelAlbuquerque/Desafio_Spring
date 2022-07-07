@@ -1,4 +1,5 @@
 package com.grupo8.ecomerce.model;
+import com.grupo8.ecomerce.dto.OrderRequestDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,7 +13,6 @@ import java.util.List;
 @AllArgsConstructor
 public class Order {
     private Long id;
-    private Client client;
     private Double totalPrice;
-    private List<Product> productList;
+    private List<OrderRequestDto> productList;
 }

@@ -11,15 +11,15 @@ import java.util.stream.Collectors;
 @Getter
 @Setter
 @NoArgsConstructor
-public class OrderDto {
+public class OrderResponseDto {
 
     private Double totalPrice;
 
-    public OrderDto(Order order) {
+    public OrderResponseDto(Order order) {
         this.totalPrice = order.getTotalPrice();
     }
 
-    public static List<OrderDto> convertDto(List<Order> listOrder) {
-        return listOrder.stream().map(OrderDto::new).collect(Collectors.toList());
+    public static List<OrderResponseDto> convertDto(List<Order> listOrder) {
+        return listOrder.stream().map(OrderResponseDto::new).collect(Collectors.toList());
     }
 }
