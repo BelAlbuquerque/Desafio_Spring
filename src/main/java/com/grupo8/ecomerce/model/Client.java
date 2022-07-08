@@ -12,5 +12,6 @@ import lombok.Setter;
 public class Client {
     private Long id;
     private String name;
-    private int phone;
+    private String cpf;
+    private String estado;
 }
