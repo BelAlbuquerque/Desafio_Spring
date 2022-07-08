@@ -3,6 +3,7 @@ package com.grupo8.ecomerce.repository;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import com.grupo8.ecomerce.exceptions.NotFound;
 import com.grupo8.ecomerce.exceptions.ServerError;
 import com.grupo8.ecomerce.model.Product;
 import org.springframework.stereotype.Repository;
@@ -53,6 +54,8 @@ public class ProductRepository {
             System.out.println(e.getMessage());
             throw new ServerError("Erro Interno no Servidor.");
         }
+        if (productList.size() < 1) throw new NotFound("Nenhum produto cadastrado.");
+
         return  productList;
     }
 
