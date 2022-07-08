@@ -3,6 +3,7 @@ package com.grupo8.ecomerce.repository;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import com.grupo8.ecomerce.exceptions.NotFound;
 import com.grupo8.ecomerce.exceptions.ServerError;
 import com.grupo8.ecomerce.model.Client;
 import org.springframework.stereotype.Repository;
@@ -44,6 +45,8 @@ public class ClientRepository {
             System.out.println(e.getMessage());
             throw new ServerError("Erro Interno no Servidor.");
         }
+        if(clientList.size() < 1) throw new NotFound("Não há clientes cadastrados.");
+
         return clientList;
     }
 
@@ -61,6 +64,6 @@ public class ClientRepository {
         } catch (Exception e) {
             throw new ServerError("Erro Interno no Servidor.");
         }
-        return client;
+        throw new NotFound("Cliente não encontrado.");
     }
 }
