@@ -1,7 +1,7 @@
 package com.grupo8.ecomerce.service;
 
-import com.grupo8.ecomerce.dto.OrderRequestDto;
 import com.grupo8.ecomerce.model.Product;
+import com.grupo8.ecomerce.model.Purchase;
 
 import java.util.List;
 
@@ -19,5 +19,5 @@ public interface ProductService {
 
     List<Product> getAllProductsOrder(int paramOrder);
 
-    void updateProducts(List<OrderRequestDto> orderRequestDtoslist);
+    void updateProducts(List<Purchase> purchaseList);
 }

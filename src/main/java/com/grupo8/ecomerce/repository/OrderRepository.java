@@ -3,9 +3,7 @@ package com.grupo8.ecomerce.repository;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
-import com.grupo8.ecomerce.dto.OrderRequestDto;
 import com.grupo8.ecomerce.model.Order;
-import com.grupo8.ecomerce.model.Product;
 import org.springframework.stereotype.Repository;
 
 import java.io.File;

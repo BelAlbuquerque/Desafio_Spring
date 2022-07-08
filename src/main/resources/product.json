@@ -4,7 +4,7 @@
   "category" : "Ferramentas",
   "brand" : "FORTGPRO",
   "price" : 1800.0,
-  "quantity" : 3,
+  "quantity" : 1,
   "freeShipping" : true,
   "prestige" : "****"
 }, {
@@ -13,7 +13,7 @@
   "category" : "Ferramentas",
   "brand" : "Black & Decker",
   "price" : 500.0,
-  "quantity" : 4,
+  "quantity" : 1,
   "freeShipping" : true,
   "prestige" : "****"
 }, {
@@ -22,7 +22,7 @@
   "category" : "Ferramentas",
   "brand" : "Black & Decker",
   "price" : 350.0,
-  "quantity" : 10,
+  "quantity" : 8,
   "freeShipping" : true,
   "prestige" : "***"
 }, {

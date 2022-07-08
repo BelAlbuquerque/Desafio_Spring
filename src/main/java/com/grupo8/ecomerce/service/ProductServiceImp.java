@@ -1,15 +1,13 @@
 package com.grupo8.ecomerce.service;
 
-import com.grupo8.ecomerce.dto.OrderRequestDto;
-import com.grupo8.ecomerce.dto.ProductDto;
 import com.grupo8.ecomerce.model.Product;
+import com.grupo8.ecomerce.model.Purchase;
 import com.grupo8.ecomerce.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Service
 public class ProductServiceImp implements ProductService {
@@ -88,10 +86,10 @@ public class ProductServiceImp implements ProductService {
     }
 
     @Override
-    public void updateProducts(List<OrderRequestDto> orderRequestDtoslist) {
+    public void updateProducts(List<Purchase> purchaseList) {
         List<Product> productList = getAllProducts();
         List<Product> updatedProductList = productList.stream().map(product -> {
-            List<OrderRequestDto> founded = orderRequestDtoslist.stream()
+            List<Purchase> founded = purchaseList.stream()
                     .filter(order -> order.getProductId().equals(product.getProductId())).collect(Collectors.toList());
             if (founded.size() != 0) {
                 if (product.getQuantity() >= founded.get(0).getQuantity()) {

@@ -1,6 +1,4 @@
 package com.grupo8.ecomerce.model;
-import com.grupo8.ecomerce.dto.OrderRequestDto;
-import com.grupo8.ecomerce.dto.OrderResponseDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
