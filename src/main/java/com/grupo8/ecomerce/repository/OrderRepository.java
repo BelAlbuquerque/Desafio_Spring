@@ -16,6 +16,10 @@ public class OrderRepository {
 
     private final String pathOrder = "src/main/resources/order.json";
 
+    /**
+     *Este metodo está criando um pedido do cliente
+     * @param newOrder
+     */
     public void createOrder (Order newOrder){
         ObjectMapper mapper = new ObjectMapper();
         ObjectWriter writer = mapper.writer(new DefaultPrettyPrinter());
@@ -32,6 +36,10 @@ public class OrderRepository {
         }
     }
 
+    /**
+     * Metodo retorna todos os pedidos de compra
+     * @return Lista Order
+     */
     public List<Order> getAllOrders() {
         ObjectMapper mapper = new ObjectMapper();
         List<Order> orderList = null;

@@ -16,6 +16,11 @@ public class ProductRepository {
 
     private final String pathProduct = "src/main/resources/product.json";
 
+    /**
+     *simula a insercao de um produto no banco de dados
+     * @param newProduct
+     * @return void
+     */
     public void createProduct(Product newProduct){
         ObjectMapper mapper = new ObjectMapper();
         ObjectWriter writer = mapper.writer(new DefaultPrettyPrinter());
@@ -32,6 +37,10 @@ public class ProductRepository {
         }
     }
 
+    /**
+     * Este metodo simula uma simula uma requisicao de todos os produtos contido no banco de dados
+     * @return List Product
+     */
     public List<Product> getAllProducts() {
         ObjectMapper mapper = new ObjectMapper();
         List<Product> productList = null;
@@ -44,6 +53,11 @@ public class ProductRepository {
         return  productList;
     }
 
+    /**
+     * Este metodo simula update  de um produto no banco de dados
+     * @param updatedProductList
+     * @return void
+     */
     public void updateProducts(List<Product> updatedProductList) {
         ObjectMapper mapper = new ObjectMapper();
         ObjectWriter writer = mapper.writer(new DefaultPrettyPrinter());
