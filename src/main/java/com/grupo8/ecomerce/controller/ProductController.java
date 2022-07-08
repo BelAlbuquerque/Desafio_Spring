@@ -24,12 +24,21 @@ public class ProductController {
         productService.createProduct(newProduct);
     }
 
+    /**
+     * Este metodo retorna para cliente uma lista de produtos disponiveis
+     * @return List Product
+     */
     @GetMapping("/products")
     public ResponseEntity<List<ProductDto>> getAllProducts() {
         List<ProductDto> productDtoList = ProductDto.convertDto(productService.getAllProducts());
         return ResponseEntity.ok(productDtoList);
     }
 
+    /**
+     *  Este metodo retorna uma de produto filtrado por categoria
+     * @param category
+     * @return lista de categoria
+     */
     @GetMapping("/products/{category}")
     public ResponseEntity<List<ProductDto>> getByCategory(@PathVariable String category) {
         List<ProductDto> listByCategory = ProductDto.convertDto(
@@ -37,6 +46,11 @@ public class ProductController {
         return ResponseEntity.ok(listByCategory);
     }
 
+    /**
+     * Este metodo retorna para o cliente  lista frete gratis
+     * @param category
+     * @return Lista de frete gratis
+     */
     @GetMapping("/products/freeshipping/")
     public ResponseEntity<List<ProductDto>> getByCategoryAndShipping(
             @RequestParam String category) {
@@ -45,6 +59,10 @@ public class ProductController {
         return ResponseEntity.ok(listFreeShippingCategory);
     }
 
+    /**
+     * Este metodo retorna para cliente uma  lista de frete gratis mais prestige ***
+     * @param prestige
+     */
     @GetMapping("/products/freeshipping/{prestige}")
     public ResponseEntity<List<ProductDto>> getByShippingAndPrestige(
             @PathVariable String prestige) {
@@ -53,6 +71,14 @@ public class ProductController {
         return ResponseEntity.ok(listFreeShippingPrestige);
     }
 
+    /**
+     * Este metodo recebe como parametro um int de 0 a 3 que retorna para cliente uma lista de produtos ordenadas, se:
+     * 0 Alfabético crescente.
+     * 1 Alfabético decrescente.
+     * 2 Maior a menor preço
+     * 3 Menor a maior preço.
+     * @param number
+     */
     @GetMapping("products/orderby/{number}")
     public ResponseEntity<List<ProductDto>> getAllProductsOrderByName(
             @PathVariable int number
