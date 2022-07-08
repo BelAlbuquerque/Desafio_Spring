@@ -1,5 +1,6 @@
 package com.grupo8.ecomerce.model;
 import com.grupo8.ecomerce.dto.OrderRequestDto;
+import com.grupo8.ecomerce.dto.OrderResponseDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,5 +15,5 @@ import java.util.List;
 public class Order {
     private Long id;
     private Double totalPrice;
-    private List<OrderRequestDto> productList;
+    private List<Product> productList;
 }
