@@ -1,8 +1,7 @@
 package com.grupo8.ecomerce.controller;
 
-import com.grupo8.ecomerce.dto.OrderRequestDto;
-import com.grupo8.ecomerce.dto.OrderResponseDto;
 import com.grupo8.ecomerce.model.Order;
+import com.grupo8.ecomerce.model.Purchase;
 import com.grupo8.ecomerce.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,8 +18,8 @@ public class OrderController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Order> createOrder(@RequestBody List<OrderRequestDto> orderRequestDto) {
-        Order responseDto = orderService.createOrder(orderRequestDto);
-        return ResponseEntity.ok(responseDto);
+    public ResponseEntity<Order> createOrder(@RequestBody List<Purchase> purchase) {
+        Order response = orderService.createOrder(purchase);
+        return ResponseEntity.ok(response);
     }
 }
