@@ -1,20 +1,16 @@
-package com.grupo8.ecomerce.dto;
+package com.grupo8.ecomerce.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrderRequestDto {
-
-
+public class Purchase {
     private Long productId;
     private Integer quantity;
-
-
 }
+

@@ -3,9 +3,7 @@ package com.grupo8.ecomerce.repository;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
-import com.grupo8.ecomerce.dto.OrderRequestDto;
 import com.grupo8.ecomerce.model.Order;
-import com.grupo8.ecomerce.model.Product;
 import org.springframework.stereotype.Repository;
 
 import java.io.File;
@@ -18,6 +16,10 @@ public class OrderRepository {
 
     private final String pathOrder = "src/main/resources/order.json";
 
+    /**
+     *Este metodo está criando um pedido do cliente
+     * @param newOrder
+     */
     public void createOrder (Order newOrder){
         ObjectMapper mapper = new ObjectMapper();
         ObjectWriter writer = mapper.writer(new DefaultPrettyPrinter());
@@ -34,6 +36,10 @@ public class OrderRepository {
         }
     }
 
+    /**
+     * Metodo retorna todos os pedidos de compra
+     * @return Lista Order
+     */
     public List<Order> getAllOrders() {
         ObjectMapper mapper = new ObjectMapper();
         List<Order> orderList = null;

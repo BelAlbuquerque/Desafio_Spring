@@ -17,12 +17,21 @@ public class ProductDto {
     private String name;
     private Integer quantity;
 
+    /**
+     * Este metodo é contrutor da classe
+     * @param product
+     */
     public ProductDto(Product product) {
         this.productId = product.getProductId();
         this.name = product.getName();
         this.quantity = product.getQuantity();
     }
 
+    /**
+     * Este metodo retorna para cliente apenas informacoes necessárias
+     * @param listProduct
+     * @return
+     */
     public static List<ProductDto> convertDto(List<Product> listProduct) {
         return listProduct.stream().map(ProductDto::new).collect(Collectors.toList());
     }
