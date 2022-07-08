@@ -35,4 +35,5 @@ public class HandlerExceptions {
                         .build(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
+
 }

@@ -3,6 +3,7 @@ package com.grupo8.ecomerce.repository;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import com.grupo8.ecomerce.exceptions.ServerError;
 import com.grupo8.ecomerce.model.Client;
 import org.springframework.stereotype.Repository;
 
@@ -29,6 +30,7 @@ public class ClientRepository {
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
+            throw new ServerError("Erro Interno no Servidor.");
         }
     }
 
@@ -40,18 +42,24 @@ public class ClientRepository {
             clientList = Arrays.asList(mapper.readValue(new File(pathClient), Client[].class));
         } catch (Exception e) {
             System.out.println(e.getMessage());
+            throw new ServerError("Erro Interno no Servidor.");
         }
         return clientList;
     }
 
-    public Client getClientById(Long id) throws Exception {
+    public Client getClientById(Long id) {
         ObjectMapper mapper = new ObjectMapper();
         Client client = null;
-        List<Client> clientList = Arrays.asList(mapper.readValue(new File(pathClient), Client[].class));
-        for (Client clienteExist : clientList) {
-            if (clienteExist.getId().equals(id)) {
-                return client = clienteExist;
+
+        try {
+            List<Client> clientList = Arrays.asList(mapper.readValue(new File(pathClient), Client[].class));
+            for (Client clienteExist : clientList) {
+                if (clienteExist.getId().equals(id)) {
+                    return client = clienteExist;
+                }
             }
+        } catch (Exception e) {
+            throw new ServerError("Erro Interno no Servidor.");
         }
         return client;
     }

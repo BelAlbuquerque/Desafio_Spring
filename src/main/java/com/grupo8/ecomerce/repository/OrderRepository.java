@@ -3,6 +3,7 @@ package com.grupo8.ecomerce.repository;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import com.grupo8.ecomerce.exceptions.ServerError;
 import com.grupo8.ecomerce.model.Order;
 import org.springframework.stereotype.Repository;
 
@@ -33,6 +34,8 @@ public class OrderRepository {
 
         }catch (Exception e){
             System.out.println(e.getMessage());
+            throw new ServerError("Erro Interno no Servidor.");
+
         }
     }
 
@@ -48,6 +51,7 @@ public class OrderRepository {
             orderList = Arrays.asList(mapper.readValue(new File(pathOrder), Order[].class));
         } catch (Exception e ) {
             System.out.println(e.getMessage());
+            throw new ServerError("Erro Interno no Servidor.");
         }
         return  orderList;
     }
