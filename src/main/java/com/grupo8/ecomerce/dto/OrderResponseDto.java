@@ -15,10 +15,14 @@ public class OrderResponseDto {
 
     private Double totalPrice;
 
+    /**
+     * Metodo construtor
+     * @param order
+     */
     public OrderResponseDto(Order order) {
         this.totalPrice = order.getTotalPrice();
     }
-
+//revisar a utilizacao
     public static List<OrderResponseDto> convertDto(List<Order> listOrder) {
         return listOrder.stream().map(OrderResponseDto::new).collect(Collectors.toList());
     }
