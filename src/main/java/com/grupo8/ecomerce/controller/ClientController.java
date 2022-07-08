@@ -18,12 +18,12 @@ public class ClientController {
     private ClientService clientService;
 
     @GetMapping()
-    public ResponseEntity<List<Client>> getAllClient() {
+    public ResponseEntity<List<Client>> getAllClient() throws Exception {
         return ResponseEntity.ok(clientService.getAllClient());
     }
 
     @GetMapping("/clientbystate/{state}")
-    public ResponseEntity<List<Client>> getByState(@PathVariable String state) {
+    public ResponseEntity<List<Client>> getByState(@PathVariable String state) throws Exception {
         return ResponseEntity.ok(clientService.getByState(state));
     }
 
