@@ -16,18 +16,18 @@ public class ClientRepository {
 
     private final String pathClient = "src/main/resources/client.json";
 
-    public void createClient (Client newClient){
+    public void createClient(Client newClient) {
         ObjectMapper mapper = new ObjectMapper();
         ObjectWriter writer = mapper.writer(new DefaultPrettyPrinter());
         List<Client> clientList = null;
 
-        try{
+        try {
             clientList = Arrays.asList(mapper.readValue(new File(pathClient), Client[].class));
             List<Client> copyListClient = new ArrayList<>(clientList);
             copyListClient.add(newClient);
             writer.writeValue(new File(pathClient), copyListClient);
 
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
@@ -38,26 +38,21 @@ public class ClientRepository {
 
         try {
             clientList = Arrays.asList(mapper.readValue(new File(pathClient), Client[].class));
-        } catch (Exception e ) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        return  clientList;
+        return clientList;
     }
 
     public Client getClientById(Long id) throws Exception {
         ObjectMapper mapper = new ObjectMapper();
-        List<Client> clientsList = null;
-        try {
-            clientsList = Arrays.asList(mapper.readValue(new File(pathClient), Client[].class));
-        } catch (Exception ignored) {
-
-        }
-        assert clientsList != null;
-        for (Client cliente: clientsList) {
-            if (cliente.getId().equals(id)){
-                return cliente;
+        Client client = null;
+        List<Client> clientsList = Arrays.asList(mapper.readValue(new File(pathClient), Client[].class));
+        for (Client clienteExiste : clientsList) {
+            if (clienteExiste.getId().equals(id)) {
+                return client = clienteExiste;
             }
         }
-        throw new ClassNotFoundException("Cliente não localizado!");
+        return client;
     }
 }

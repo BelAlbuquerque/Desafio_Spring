@@ -11,6 +11,7 @@ public interface ClientService {
 
     void createClient(Client client) throws Exception;
     List<Client> getAllClient();
+    List<Client> getByState(String state);
     Client getClientById(Long id) throws Exception;
 
 }
