@@ -1,7 +1,12 @@
 package com.grupo8.ecomerce.service;
 
+import com.grupo8.ecomerce.dto.OrderRequestDto;
+import com.grupo8.ecomerce.dto.OrderResponseDto;
 import com.grupo8.ecomerce.model.Order;
 
+import java.util.List;
+
 public interface OrderService {
-    Double getTotalPrice(Order order);
+//    Double getTotalPrice(Order order);
+    OrderResponseDto createOrder(List<OrderRequestDto> order);
 }

@@ -43,4 +43,14 @@ public class ProductRepository {
         }
         return  productList;
     }
+
+    public void updateProducts(List<Product> updatedProductList) {
+        ObjectMapper mapper = new ObjectMapper();
+        ObjectWriter writer = mapper.writer(new DefaultPrettyPrinter());
+        try{
+            writer.writeValue(new File(pathProduct), updatedProductList);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
 }
