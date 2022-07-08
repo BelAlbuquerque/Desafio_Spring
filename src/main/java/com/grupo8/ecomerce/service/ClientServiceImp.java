@@ -38,7 +38,7 @@ public class ClientServiceImp implements ClientService {
     public List<Client> getByState(String state) {
         List<Client> clientList = clientRepository.getAllClient();
         return clientList.stream()
-                .filter(client -> client.getEstado().equalsIgnoreCase(state))
+                .filter(client -> client.getState().equalsIgnoreCase(state))
                 .collect(Collectors.toList());
     }
 
@@ -52,7 +52,7 @@ public class ClientServiceImp implements ClientService {
         if (client.getId() == null) return false;
         if (client.getName() == null) return false;
         if (client.getCpf() == null) return false;
-        if (client.getEstado() == null) return false;
+        if (client.getState() == null) return false;
         return true;
     }
 }

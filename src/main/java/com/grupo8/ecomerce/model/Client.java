@@ -13,5 +13,5 @@ public class Client {
     private Long id;
     private String name;
     private String cpf;
-    private String estado;
+    private String state;
 }

@@ -47,10 +47,10 @@ public class ClientRepository {
     public Client getClientById(Long id) throws Exception {
         ObjectMapper mapper = new ObjectMapper();
         Client client = null;
-        List<Client> clientsList = Arrays.asList(mapper.readValue(new File(pathClient), Client[].class));
-        for (Client clienteExiste : clientsList) {
-            if (clienteExiste.getId().equals(id)) {
-                return client = clienteExiste;
+        List<Client> clientList = Arrays.asList(mapper.readValue(new File(pathClient), Client[].class));
+        for (Client clienteExist : clientList) {
+            if (clienteExist.getId().equals(id)) {
+                return client = clienteExist;
             }
         }
         return client;

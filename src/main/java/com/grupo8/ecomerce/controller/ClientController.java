@@ -15,26 +15,26 @@ import java.util.List;
 public class ClientController {
 
     @Autowired
-    private ClientService clienteService;
+    private ClientService clientService;
 
     @GetMapping()
     public ResponseEntity<List<Client>> getAllClient() {
-        return ResponseEntity.ok(clienteService.getAllClient());
+        return ResponseEntity.ok(clientService.getAllClient());
     }
 
     @GetMapping("/clientbystate/{state}")
     public ResponseEntity<List<Client>> getByState(@PathVariable String state) {
-        return ResponseEntity.ok(clienteService.getByState(state));
+        return ResponseEntity.ok(clientService.getByState(state));
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void createClient(@RequestBody Client newClient) throws Exception {
-        clienteService.createClient(newClient);
+        clientService.createClient(newClient);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Client> getClienteById(@PathVariable Long id) throws Exception {
-        return ResponseEntity.ok(clienteService.getClientById(id));
+        return ResponseEntity.ok(clientService.getClientById(id));
     }
 }
