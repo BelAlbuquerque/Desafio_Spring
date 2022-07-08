@@ -1,20 +1,26 @@
 package com.grupo8.ecomerce.controller;
 
+import com.grupo8.ecomerce.dto.OrderRequestDto;
+import com.grupo8.ecomerce.dto.OrderResponseDto;
+import com.grupo8.ecomerce.model.Order;
 import com.grupo8.ecomerce.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
-@RequestMapping("/order")
+@RequestMapping("/api/v1/order")
 public class OrderController {
     @Autowired
     private OrderService orderService;
 
-    @GetMapping
-    public ResponseEntity<Double> getTotalPrice() {
-    return null;
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public ResponseEntity<Order> createOrder(@RequestBody List<OrderRequestDto> orderRequestDto) {
+        Order responseDto = orderService.createOrder(orderRequestDto);
+        return ResponseEntity.ok(responseDto);
     }
 }
