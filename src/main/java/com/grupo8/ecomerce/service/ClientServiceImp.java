@@ -15,8 +15,8 @@ public class ClientServiceImp implements ClientService{
 
     @Override
     public void createClient(Client client) throws Exception {
-        Client clientExist = clienteRepository.getClientById(client);
-        if (clientExist.getId() != client.getId()){
+        Client clientExist = clienteRepository.getClientById(client.getId());
+        if (!clientExist.getId().equals(client.getId())){
             clienteRepository.createClient(client);
         }
     }
@@ -29,8 +29,8 @@ public class ClientServiceImp implements ClientService{
     }
 
     @Override
-    public Client getClientById(Client client) throws Exception {
-        Client oneClient = clienteRepository.getClientById(client);
+    public Client getClientById(Long id) throws Exception {
+        Client oneClient = clienteRepository.getClientById(id);
         return oneClient;
     }
 

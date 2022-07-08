@@ -44,17 +44,20 @@ public class ClientRepository {
         return  clientList;
     }
 
-    public Client getClientById(Client newCliente) throws Exception {
+    public Client getClientById(Long id) throws Exception {
         ObjectMapper mapper = new ObjectMapper();
         List<Client> clientsList = null;
-
         try {
             clientsList = Arrays.asList(mapper.readValue(new File(pathClient), Client[].class));
-            return  clientsList.stream().filter(client -> client.getId().equals(newCliente.getId())).findAny().get();
-        } catch (Exception e ) {
-            System.out.println(e.getMessage());
-        }
-        throw new Exception();
-    }
+        } catch (Exception ignored) {
 
+        }
+        assert clientsList != null;
+        for (Client cliente: clientsList) {
+            if (cliente.getId().equals(id)){
+                return cliente;
+            }
+        }
+        throw new ClassNotFoundException("Cliente não localizado!");
+    }
 }
