@@ -1,5 +1,7 @@
 package com.grupo8.ecomerce.service;
 
+import com.grupo8.ecomerce.exceptions.ClientAlreadyExists;
+import com.grupo8.ecomerce.exceptions.IncorrectFields;
 import com.grupo8.ecomerce.model.Client;
 import com.grupo8.ecomerce.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +22,10 @@ public class ClientServiceImp implements ClientService {
             if (clientRepository.getClientById(client.getId()) == null) {
                 clientRepository.createClient(client);
             }else {
-                System.out.println("Cliente não cadastrado");
+                throw new ClientAlreadyExists("Cliente já cadastrado.");
             }
         } else {
-            System.out.println("Cliente com dados ");
+            throw new IncorrectFields("Campos incorretos.");
         }
     }
 
