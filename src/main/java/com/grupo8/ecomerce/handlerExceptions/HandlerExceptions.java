@@ -14,7 +14,7 @@ public class HandlerExceptions {
     public ResponseEntity<ErrorResponseDetails> handlerErrorNotFound(NotFound notFoundProducts) {
         return new ResponseEntity<>(
                 ErrorResponseDetails.builder()
-                        .title("Not Found Products")
+                        .title("Not Found")
                         .status(HttpStatus.NOT_FOUND.value())
                         .message(notFoundProducts.getMessage())
                         .timestamp(LocalDateTime.now())
@@ -53,5 +53,4 @@ public class HandlerExceptions {
                         .timestamp(LocalDateTime.now())
                         .build(), HttpStatus.UNAUTHORIZED);
     }
-
 }
