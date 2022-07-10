@@ -2,6 +2,7 @@ package com.grupo8.ecomerce.service;
 
 import com.grupo8.ecomerce.exceptions.ClientAlreadyExists;
 import com.grupo8.ecomerce.exceptions.IncorrectFields;
+import com.grupo8.ecomerce.exceptions.NotFound;
 import com.grupo8.ecomerce.model.Client;
 import com.grupo8.ecomerce.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,18 +18,17 @@ public class ClientServiceImp implements ClientService {
     private ClientRepository clientRepository;
 
     @Override
-    public void createClient(Client client) throws Exception {
+    public void createClient(Client client) {
         if (verifyDataClient(client)) {
             if (clientRepository.getClientById(client.getId()) == null) {
                 clientRepository.createClient(client);
-            }else {
+            } else {
                 throw new ClientAlreadyExists("Cliente já cadastrado.");
             }
         } else {
             throw new IncorrectFields("Campos incorretos.");
         }
     }
-
 
     @Override
     public List<Client> getAllClient() {
@@ -47,6 +47,7 @@ public class ClientServiceImp implements ClientService {
     @Override
     public Client getClientById(Long id) throws Exception {
         Client oneClient = clientRepository.getClientById(id);
+        if(oneClient.getId() == null) throw new NotFound("Cliente não encontrado.");
         return oneClient;
     }
 

@@ -64,6 +64,6 @@ public class ClientRepository {
         } catch (Exception e) {
             throw new ServerError("Erro Interno no Servidor.");
         }
-        throw new NotFound("Cliente não encontrado.");
+        return null;
     }
 }

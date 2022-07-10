@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 public class ErrorResponseDetails {
     private String title;
     private int status;
+    private String link;
     private String message;
     private LocalDateTime timestamp;
 }

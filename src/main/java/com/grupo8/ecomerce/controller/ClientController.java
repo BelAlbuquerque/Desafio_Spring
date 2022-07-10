@@ -1,6 +1,7 @@
 package com.grupo8.ecomerce.controller;
 
 
+import com.grupo8.ecomerce.exceptions.OpsException;
 import com.grupo8.ecomerce.model.Client;
 import com.grupo8.ecomerce.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,22 +20,38 @@ public class ClientController {
 
     @GetMapping()
     public ResponseEntity<List<Client>> getAllClient() throws Exception {
-        return ResponseEntity.ok(clientService.getAllClient());
+      try {
+          return ResponseEntity.ok(clientService.getAllClient());
+      }catch (Exception e) {
+          throw new Exception(e);
+      }
     }
 
     @GetMapping("/clientbystate/{state}")
     public ResponseEntity<List<Client>> getByState(@PathVariable String state) throws Exception {
-        return ResponseEntity.ok(clientService.getByState(state));
+        try {
+            return ResponseEntity.ok(clientService.getByState(state));
+        } catch (Exception e) {
+            throw new OpsException();
+        }
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void createClient(@RequestBody Client newClient) throws Exception {
-        clientService.createClient(newClient);
+        try {
+            clientService.createClient(newClient);
+        } catch (Exception e) {
+            throw e;
+        }
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Client> getClienteById(@PathVariable Long id) throws Exception {
-        return ResponseEntity.ok(clientService.getClientById(id));
+        try {
+            return ResponseEntity.ok(clientService.getClientById(id));
+        } catch (Exception e) {
+            throw new Exception(e);
+        }
     }
 }

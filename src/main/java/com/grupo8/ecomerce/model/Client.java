@@ -14,4 +14,14 @@ public class Client {
     private String name;
     private String cpf;
     private String state;
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", state='" + state + '\'' +
+                '}';
+    }
 }
