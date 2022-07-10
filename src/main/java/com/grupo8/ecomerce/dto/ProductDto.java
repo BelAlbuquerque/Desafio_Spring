@@ -18,7 +18,7 @@ public class ProductDto {
     private Integer quantity;
 
     /**
-     * Este metodo é contrutor da classe
+     * Este metodo é um contrutor da classe
      * @param product
      */
     public ProductDto(Product product) {

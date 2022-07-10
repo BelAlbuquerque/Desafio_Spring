@@ -10,6 +10,12 @@ import java.time.LocalDateTime;
 
 @ControllerAdvice
 public class HandlerExceptions {
+
+    /**
+     * Este método retorna o Status Code NOT FOUND para o cliente
+     * @param notFoundProducts
+     * @return
+     */
     @ExceptionHandler(NotFound.class)
     public ResponseEntity<ErrorResponseDetails> handlerErrorNotFound(NotFound notFoundProducts) {
         return new ResponseEntity<>(
@@ -22,6 +28,11 @@ public class HandlerExceptions {
                         .build(), HttpStatus.NOT_FOUND);
     }
 
+    /**
+     * Este método retorna o Status Code INTERNAL SERVER ERROR para o cliente
+     * @param serverError
+     * @return
+     */
     @ExceptionHandler(ServerError.class)
     public ResponseEntity<ErrorResponseDetails> handlerErrorInternal(ServerError serverError) {
         return new ResponseEntity<>(
@@ -34,6 +45,11 @@ public class HandlerExceptions {
                         .build(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
+    /**
+     * Este método retorna o Status Code BAD REQUEST para o cliente
+     * @param incorrectFields
+     * @return
+     */
     @ExceptionHandler(IncorrectFields.class)
     public ResponseEntity<ErrorResponseDetails> handlerErrorBadRequest(IncorrectFields incorrectFields) {
         return new ResponseEntity<>(
@@ -46,6 +62,11 @@ public class HandlerExceptions {
                         .build(), HttpStatus.BAD_REQUEST);
     }
 
+    /**
+     * Este método retorna o Status Code UNAUTHORIZED para o cliente
+     * @param clientAlreadyExists
+     * @return
+     */
     @ExceptionHandler(ClientAlreadyExists.class)
     public ResponseEntity<ErrorResponseDetails> handlerErrorUnauthorized(ClientAlreadyExists clientAlreadyExists) {
         return new ResponseEntity<>(
@@ -58,6 +79,11 @@ public class HandlerExceptions {
                         .build(), HttpStatus.UNAUTHORIZED);
     }
 
+    /**
+     * Este método retorna o Status Code UNAUTHORIZED para o cliente
+     * @param notAllowed
+     * @return
+     */
     @ExceptionHandler(NotAllowed.class)
     public ResponseEntity<ErrorResponseDetails> handlerErrorNotAllowed(NotAllowed notAllowed) {
         return new ResponseEntity<>(
@@ -68,19 +94,5 @@ public class HandlerExceptions {
                         .message(notAllowed.getMessage())
                         .timestamp(LocalDateTime.now())
                         .build(), HttpStatus.UNAUTHORIZED);
-    }
-
-    @ExceptionHandler(OpsException.class)
-    public ResponseEntity<ErrorResponseDetails> handlerErrorOps(OpsException opsException) {
-        return new ResponseEntity<>(
-                ErrorResponseDetails.builder()
-                        .title("Ops... algo imprevisto ocorreu!")
-                        .status(HttpStatus.NOT_FOUND.value())
-                        .link("https://http.cat/418")
-                        .message("Algum erro imprevisto ocorreu,\n" +
-                                " por favor entre em contato para que possamos para melhorarmos nossa API\n" +
-                                "https://github.com/BelAlbuquerque/Desafio_Spring")
-                        .timestamp(LocalDateTime.now())
-                        .build(), HttpStatus.NOT_FOUND);
     }
 }

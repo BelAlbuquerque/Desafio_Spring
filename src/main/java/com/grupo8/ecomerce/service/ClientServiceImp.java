@@ -14,9 +14,19 @@ import java.util.stream.Collectors;
 @Service
 public class ClientServiceImp implements ClientService {
 
+    /**
+     * Injeção de dependência do Service: Product
+     */
     @Autowired
     private ClientRepository clientRepository;
 
+    /**
+     * Este metodo cria um cliente e verifica se ele está cadastrado.
+     * Caso esteja retorna clinte cadastrado e caso ocorra um erro no cadastro informa que algo esta errrado
+     *
+     * @param client
+     * @throws Exception
+     */
     @Override
     public void createClient(Client client) {
         if (verifyDataClient(client)) {
@@ -30,6 +40,11 @@ public class ClientServiceImp implements ClientService {
         }
     }
 
+    /**
+     * Este metodo retorna lista de cliente
+     * @return clientList
+     * @throws Exception
+     */
     @Override
     public List<Client> getAllClient() {
         List<Client> clientList = clientRepository.getAllClient();
@@ -37,6 +52,12 @@ public class ClientServiceImp implements ClientService {
         return clientList;
     }
 
+    /**
+     * Este metodo retorna lista de clientes filtrado por estado
+     * @param state
+     * @return filteredClientList
+     * @throws Exception
+     */
     @Override
     public List<Client> getByState(String state) {
         List<Client> clientList = clientRepository.getAllClient();
@@ -47,6 +68,12 @@ public class ClientServiceImp implements ClientService {
         return  filteredClientList;
     }
 
+    /**
+     * Este metodo vai buscar cliente por Id, caso nao encontre retorna uma mensagem de cliente nao encontrado
+     * @param id
+     * @return
+     * @throws Exception
+     */
     @Override
     public Client getClientById(Long id) {
         Client oneClient = clientRepository.getClientById(id);
@@ -57,6 +84,13 @@ public class ClientServiceImp implements ClientService {
         }
         return oneClient;
     }
+
+    /**
+     * Este metodo verifica se o cliente esta cadastrado por Id, Nome, CPF ou estado.
+     * Caso nao se aplique em nenhuma dessas catergorias retorna False
+     * @param client
+     * @return boolean
+     */
 
     private boolean verifyDataClient(Client client) {
         if (client.getId() == null) return false;

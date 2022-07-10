@@ -44,6 +44,7 @@ public class ProductServiceImp implements ProductService {
      * Método responsável por retornar uma lista de produtos de acordo com uma categoria específica.
      * @param category A categoria a ser utilizada na pesquisa.
      * @return Lista de produtos que pertencem à categoria informada.
+     * @throws Exception
      */
     @Override
     public List<Product> getByCategory(String category) {
@@ -62,7 +63,9 @@ public class ProductServiceImp implements ProductService {
      * Método responsável por retornar uma lista de produtos que possuem frete grátis.
      * @param productList Lista contendo todos os produtos.
      * @return Lista de produtos com frete grátis.
+     * @throws Exception
      */
+
     @Override
     public List<Product> getByShipping(List<Product> productList) { // category avaliacao
         List<Product> productsFreeShipping = productList.stream()
@@ -76,6 +79,7 @@ public class ProductServiceImp implements ProductService {
      * Método responsável por retornar uma lista de produtos que correspondem a uma avaliação desejada.
      * @param prestige O critério de avaliação a ser utilizado na pesquisa.
      * @return Lista de produtos correspondentes a avaliação.
+     * @throws Exception
      */
     @Override
     public List<Product> getByPrestige(String prestige) {
@@ -91,7 +95,8 @@ public class ProductServiceImp implements ProductService {
     /**
      * Método responsável por acionar um dos métodos de ordenação.
      * @param paramOrder O parâmentro a ser utilizado para definir qual método será chamado.
-     * @return Null
+     * @return List Products
+     * @throws Exception
      */
     @Override
     public List<Product> getAllProductsOrder(int paramOrder) {
@@ -146,6 +151,8 @@ public class ProductServiceImp implements ProductService {
     /**
      * Método responsável por atualizar a quantidade de produtos em estoque.
      * @param purchaseList Ordem de pedidos, contendo ID do produto e a quantidade
+     * @return void
+     * @throws Exception
      */
     @Override
     public void updateProducts(List<Purchase> purchaseList) {

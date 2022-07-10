@@ -62,6 +62,7 @@ public class OrderServiceImp implements OrderService {
  * Método responsável por retornar uma lista de produtos com todas as suas informações pertinentes.
  * @param purchaseList Lista dos produtos comprados, contendo ID do produto e a quantidade.
  * @return Lista completa dos produtos comprados.
+ * @throws Exception
  */
     private List<Product> getDetailedProducts(List<Purchase> purchaseList) {
         List<Product> purchaseListToReturn = null;

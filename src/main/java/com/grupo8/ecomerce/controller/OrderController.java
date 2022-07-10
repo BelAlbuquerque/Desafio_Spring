@@ -16,6 +16,11 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
+    /**
+     * Este método cria um novo pedido de um cliente
+     * @param purchase
+     * @return
+     */
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Order> createOrder(@RequestBody List<Purchase> purchase) {

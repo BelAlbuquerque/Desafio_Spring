@@ -18,6 +18,10 @@ public class ClientRepository {
 
     private final String pathClient = "src/main/resources/client.json";
 
+    /**
+     * Este metodo está cadastrando um novo cliente
+     * @param newClient
+     */
     public void createClient(Client newClient) {
         ObjectMapper mapper = new ObjectMapper();
         ObjectWriter writer = mapper.writer(new DefaultPrettyPrinter());
@@ -35,6 +39,11 @@ public class ClientRepository {
         }
     }
 
+    /**
+     *  Este metodo simula uma requisição de todos os clientes contidos no banco de dados
+     * @return clientList
+     */
+
     public List<Client> getAllClient() {
         ObjectMapper mapper = new ObjectMapper();
         List<Client> clientList = null;
@@ -50,6 +59,12 @@ public class ClientRepository {
         return clientList;
     }
 
+    /**
+     *Este metodo simula uma requisicao de cliente por Id
+     * @param id
+     * @return client
+     */
+
     public Client getClientById(Long id) {
         ObjectMapper mapper = new ObjectMapper();
         Client client = null;
@@ -64,6 +79,6 @@ public class ClientRepository {
         } catch (Exception e) {
             throw new ServerError("Erro Interno no Servidor.");
         }
-        return null;
+        return client;
     }
 }
