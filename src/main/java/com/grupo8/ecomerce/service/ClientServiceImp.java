@@ -17,6 +17,12 @@ public class ClientServiceImp implements ClientService {
     @Autowired
     private ClientRepository clientRepository;
 
+    /**
+     * Este metodo cria um cliente e verifica se ele está cadastrado.
+     * Caso esteja retorna clinte cadastrado e caso ocorra um erro no cadastro informa que algo esta errrado
+     *
+     * @param client
+     */
     @Override
     public void createClient(Client client) {
         if (verifyDataClient(client)) {
@@ -30,12 +36,21 @@ public class ClientServiceImp implements ClientService {
         }
     }
 
+    /**
+     * Este metodo retorna lista de cliente
+     * @return
+     */
     @Override
     public List<Client> getAllClient() {
         List<Client> clientList = clientRepository.getAllClient();
         return clientList;
     }
 
+    /**
+     * Este metodo retorna lista de clientes filtrado por estado
+     * @param state
+     * @return
+     */
     @Override
     public List<Client> getByState(String state) {
         List<Client> clientList = clientRepository.getAllClient();
@@ -44,12 +59,25 @@ public class ClientServiceImp implements ClientService {
                 .collect(Collectors.toList());
     }
 
+    /**
+     * Este metodo vai buscar cliente por Id, caso nao encontre retorna uma mensagem de cliente nao encontrado
+     * @param id
+     * @return
+     * @throws Exception
+     */
     @Override
     public Client getClientById(Long id) throws Exception {
         Client oneClient = clientRepository.getClientById(id);
         if(oneClient.getId() == null) throw new NotFound("Cliente não encontrado.");
         return oneClient;
     }
+
+    /**
+     * Este metodo verifica se o cliente esta cadastrado por Id, Nome, CPF ou estado.
+     * Caso nao se aplique em nenhuma dessas catergorias retorna False
+     * @param client
+     * @return
+     */
 
     private boolean verifyDataClient(Client client) {
         if (client.getId() == null) return false;

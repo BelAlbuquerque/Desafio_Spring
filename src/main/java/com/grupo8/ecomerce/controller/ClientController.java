@@ -18,6 +18,11 @@ public class ClientController {
     @Autowired
     private ClientService clientService;
 
+    /**
+     * Este metodo retorna uma lista com todos os clientes
+     * @return
+     * @throws Exception
+     */
     @GetMapping()
     public ResponseEntity<List<Client>> getAllClient() throws Exception {
       try {
@@ -27,6 +32,12 @@ public class ClientController {
       }
     }
 
+    /**
+     * Este metodo retorna o estado/local do cliente
+     * @param state
+     * @return
+     * @throws Exception
+     */
     @GetMapping("/clientbystate/{state}")
     public ResponseEntity<List<Client>> getByState(@PathVariable String state) throws Exception {
         try {
@@ -36,6 +47,11 @@ public class ClientController {
         }
     }
 
+    /**
+     * Este metodo cria um novo cadastro de cliente
+     * @param newClient
+     * @throws Exception
+     */
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void createClient(@RequestBody Client newClient) throws Exception {
@@ -45,6 +61,13 @@ public class ClientController {
             throw e;
         }
     }
+
+    /**
+     * Este metodo retorna uma lista de cliente por Id
+     * @param id
+     * @return
+     * @throws Exception
+     */
 
     @GetMapping("/{id}")
     public ResponseEntity<Client> getClienteById(@PathVariable Long id) throws Exception {

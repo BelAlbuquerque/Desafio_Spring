@@ -19,7 +19,7 @@ public class OrderRepository {
     private final String pathOrder = "src/main/resources/order.json";
 
     /**
-     *Este metodo está criando um pedido do cliente
+     *Este metodo simulando a criando de um  pedido do cliente
      * @param newOrder
      */
     public void createOrder (Order newOrder){
