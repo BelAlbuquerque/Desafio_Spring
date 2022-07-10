@@ -54,7 +54,6 @@ public class OrderRepository {
             System.out.println(e.getMessage());
             throw new ServerError("Erro Interno no Servidor.");
         }
-        if (orderList.size() < 1) throw new NotFound("Nenhum pedido registrado.");
         return  orderList;
     }
 }
