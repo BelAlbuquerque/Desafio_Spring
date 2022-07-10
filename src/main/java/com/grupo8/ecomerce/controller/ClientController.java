@@ -19,39 +19,23 @@ public class ClientController {
     private ClientService clientService;
 
     @GetMapping()
-    public ResponseEntity<List<Client>> getAllClient() throws Exception {
-      try {
-          return ResponseEntity.ok(clientService.getAllClient());
-      }catch (Exception e) {
-          throw new Exception(e);
-      }
+    public ResponseEntity<List<Client>> getAllClient() {
+        return ResponseEntity.ok(clientService.getAllClient());
     }
 
     @GetMapping("/clientbystate/{state}")
-    public ResponseEntity<List<Client>> getByState(@PathVariable String state) throws Exception {
-        try {
-            return ResponseEntity.ok(clientService.getByState(state));
-        } catch (Exception e) {
-            throw new OpsException();
-        }
+    public ResponseEntity<List<Client>> getByState(@PathVariable String state) {
+        return ResponseEntity.ok(clientService.getByState(state));
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void createClient(@RequestBody Client newClient) throws Exception {
-        try {
-            clientService.createClient(newClient);
-        } catch (Exception e) {
-            throw e;
-        }
+    public void createClient(@RequestBody Client newClient) {
+        clientService.createClient(newClient);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Client> getClienteById(@PathVariable Long id) throws Exception {
-        try {
-            return ResponseEntity.ok(clientService.getClientById(id));
-        } catch (Exception e) {
-            throw new Exception(e);
-        }
+    public ResponseEntity<Client> getClienteById(@PathVariable Long id) {
+        return ResponseEntity.ok(clientService.getClientById(id));
     }
 }

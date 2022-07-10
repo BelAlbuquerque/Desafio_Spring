@@ -33,19 +33,22 @@ public class ClientServiceImp implements ClientService {
     @Override
     public List<Client> getAllClient() {
         List<Client> clientList = clientRepository.getAllClient();
+        if (clientList.size() < 1) throw new NotFound("nenhum cliente cadastrado");
         return clientList;
     }
 
     @Override
     public List<Client> getByState(String state) {
         List<Client> clientList = clientRepository.getAllClient();
-        return clientList.stream()
+        List<Client> filteredClientList = clientList.stream()
                 .filter(client -> client.getState().equalsIgnoreCase(state))
                 .collect(Collectors.toList());
+        if(filteredClientList.size() < 1) throw new NotFound("Nenhum cliente encontrado");
+        return  filteredClientList;
     }
 
     @Override
-    public Client getClientById(Long id) throws Exception {
+    public Client getClientById(Long id) {
         Client oneClient = clientRepository.getClientById(id);
         try {
             oneClient.getId();

@@ -9,9 +9,9 @@ import java.util.List;
 
 public interface ClientService {
 
-    void createClient(Client client) throws Exception;
+    void createClient(Client client);
     List<Client> getAllClient();
     List<Client> getByState(String state);
-    Client getClientById(Long id) throws Exception;
+    Client getClientById(Long id);
 
 }

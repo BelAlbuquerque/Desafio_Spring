@@ -46,6 +46,10 @@ public class OrderServiceImp implements OrderService {
     @Override
     public Order createOrder(List<Purchase> purchaseList) {
         Order order = new Order();
+        purchaseList.stream().forEach(purchase -> {
+            if (purchase.getQuantity() == null) throw new NotAllowed("A quantidade do produto precisa ser informada");
+            if(purchase.getProductId() == null) throw new NotAllowed("O ID do produto precisa der informado");
+        });
         order.setId((long) (orderRepository.getAllOrders().size() + 1));
         order.setProductList(getDetailedProducts(purchaseList));
         order.setTotalPrice(getTotalPrice(order.getProductList()));

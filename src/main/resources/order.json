@@ -464,4 +464,26 @@
     "freeShipping" : false,
     "prestige" : "*"
   } ]
+}, {
+  "id" : 23,
+  "totalPrice" : 435.0,
+  "productList" : [ {
+    "productId" : 10,
+    "name" : "Calcas",
+    "category" : "Roupas",
+    "brand" : "Oakley",
+    "price" : 73.0,
+    "quantity" : 5,
+    "freeShipping" : false,
+    "prestige" : "***"
+  }, {
+    "productId" : 11,
+    "name" : "Meias",
+    "category" : "Roupas",
+    "brand" : "Gonew",
+    "price" : 10.0,
+    "quantity" : 7,
+    "freeShipping" : false,
+    "prestige" : "*"
+  } ]
 } ]
