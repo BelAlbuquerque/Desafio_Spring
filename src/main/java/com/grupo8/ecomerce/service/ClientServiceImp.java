@@ -47,7 +47,11 @@ public class ClientServiceImp implements ClientService {
     @Override
     public Client getClientById(Long id) throws Exception {
         Client oneClient = clientRepository.getClientById(id);
-        if(oneClient.getId() == null) throw new NotFound("Cliente não encontrado.");
+        try {
+            oneClient.getId();
+        }catch (Exception e) {
+            throw new NotFound("Cliente não encontrado.");
+        }
         return oneClient;
     }
 
