@@ -1,5 +1,6 @@
 package com.grupo8.ecomerce.service;
 
+import com.grupo8.ecomerce.exceptions.IncorrectFields;
 import com.grupo8.ecomerce.exceptions.NotAllowed;
 import com.grupo8.ecomerce.exceptions.NotFound;
 import com.grupo8.ecomerce.model.Product;
@@ -48,8 +49,12 @@ public class ProductServiceImp implements ProductService {
     public List<Product> getByCategory(String category) {
         List<Product> productList = productRepository.getAllProducts();
         List<Product> productByCategoryList = productList.stream()
-                .filter(product -> product.getCategory().equalsIgnoreCase(category))
-                .collect(Collectors.toList());
+                    .filter(product -> product.getCategory().equalsIgnoreCase(category))
+                    .collect(Collectors.toList());
+
+        if (productByCategoryList.size() < 1) throw new NotFound(
+                "nenhum produto com essa categoria(-> " + category + " <-) foi encontrado");
+
         return productByCategoryList;
     }
 
@@ -63,6 +68,7 @@ public class ProductServiceImp implements ProductService {
         List<Product> productsFreeShipping = productList.stream()
                 .filter(product -> product.getFreeShipping() == true)
                 .collect(Collectors.toList());
+        if (productsFreeShipping.size() < 1) throw new NotFound("nenhum produto com frete gratis foi encontrado");
         return productsFreeShipping;
     }
 
@@ -77,6 +83,8 @@ public class ProductServiceImp implements ProductService {
         List<Product> productsPrestige = productList.stream()
                 .filter(product -> product.getPrestige().equals(prestige))
                 .collect(Collectors.toList());
+        if (productsPrestige.size() < 1) throw new NotFound(
+                "nenhum produto com essa(" + prestige + ") avaliação, foi encontrado");
         return productsPrestige;
     }
 
@@ -91,8 +99,8 @@ public class ProductServiceImp implements ProductService {
         if(paramOrder == 1) return getAllProductsOrderByDesc();
         if(paramOrder == 2) return getAllProductsOrderByHigherPrice();
         if(paramOrder == 3) return getAllProductsOrderBySmallerPrice();
-        // Verificar: tratamento para opção inválida
-        return null;
+
+        throw new IncorrectFields("Opção invalida, apenas numeros de 0 a 3");
     }
 
     /**
