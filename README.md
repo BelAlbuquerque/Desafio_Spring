@@ -50,4 +50,4 @@ Trata-se de uma plataforma de vendas online que deseja melhorar as opções de p
  - Retornar uma lista de clientes filtrada por um determinado estado;
 
 
-A documentação das rotas está no [arquivo](.Desafio_Spring-E-commerce.postman_collection.json)
+**A documentação das rotas está neste [arquivo](Desafio_Spring-E-commerce.postman_collection.json)**
