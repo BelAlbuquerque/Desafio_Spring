@@ -58,6 +58,18 @@ public class HandlerExceptions {
                         .build(), HttpStatus.UNAUTHORIZED);
     }
 
+    @ExceptionHandler(NotAllowed.class)
+    public ResponseEntity<ErrorResponseDetails> handlerErrorNotAllowed(NotAllowed notAllowed) {
+        return new ResponseEntity<>(
+                ErrorResponseDetails.builder()
+                        .title("Unauthorized")
+                        .status(HttpStatus.UNAUTHORIZED.value())
+                        .link("https://http.cat/401")
+                        .message(notAllowed.getMessage())
+                        .timestamp(LocalDateTime.now())
+                        .build(), HttpStatus.UNAUTHORIZED);
+    }
+
     @ExceptionHandler(OpsException.class)
     public ResponseEntity<ErrorResponseDetails> handlerErrorOps(OpsException opsException) {
         return new ResponseEntity<>(

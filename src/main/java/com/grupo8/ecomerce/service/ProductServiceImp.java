@@ -1,5 +1,7 @@
 package com.grupo8.ecomerce.service;
 
+import com.grupo8.ecomerce.exceptions.NotAllowed;
+import com.grupo8.ecomerce.exceptions.NotFound;
 import com.grupo8.ecomerce.model.Product;
 import com.grupo8.ecomerce.model.Purchase;
 import com.grupo8.ecomerce.repository.ProductRepository;
@@ -147,7 +149,7 @@ public class ProductServiceImp implements ProductService {
                 if (product.getQuantity() >= founded.get(0).getQuantity()) {
                     product.setQuantity(product.getQuantity() - founded.get(0).getQuantity());
                     return product;
-                }
+                } else { throw new NotAllowed("Não temos estoque para essa quantidade"); }
             }
             return product;
         }).collect(Collectors.toList());

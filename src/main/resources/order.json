@@ -90,4 +90,378 @@
     "freeShipping" : true,
     "prestige" : "*****"
   } ]
+}, {
+  "id" : 6,
+  "totalPrice" : 12500.0,
+  "productList" : [ {
+    "productId" : 1,
+    "name" : "Serra de Bancada",
+    "category" : "Ferramentas",
+    "brand" : "FORTGPRO",
+    "price" : 1800.0,
+    "quantity" : 5,
+    "freeShipping" : true,
+    "prestige" : "****"
+  }, {
+    "productId" : 2,
+    "name" : "Furadeira",
+    "category" : "Ferramentas",
+    "brand" : "Black & Decker",
+    "price" : 500.0,
+    "quantity" : 7,
+    "freeShipping" : true,
+    "prestige" : "****"
+  } ]
+}, {
+  "id" : 7,
+  "totalPrice" : 12500.0,
+  "productList" : [ {
+    "productId" : 1,
+    "name" : "Serra de Bancada",
+    "category" : "Ferramentas",
+    "brand" : "FORTGPRO",
+    "price" : 1800.0,
+    "quantity" : 5,
+    "freeShipping" : true,
+    "prestige" : "****"
+  }, {
+    "productId" : 2,
+    "name" : "Furadeira",
+    "category" : "Ferramentas",
+    "brand" : "Black & Decker",
+    "price" : 500.0,
+    "quantity" : 7,
+    "freeShipping" : true,
+    "prestige" : "****"
+  } ]
+}, {
+  "id" : 8,
+  "totalPrice" : 12500.0,
+  "productList" : [ {
+    "productId" : 1,
+    "name" : "Serra de Bancada",
+    "category" : "Ferramentas",
+    "brand" : "FORTGPRO",
+    "price" : 1800.0,
+    "quantity" : 5,
+    "freeShipping" : true,
+    "prestige" : "****"
+  }, {
+    "productId" : 2,
+    "name" : "Furadeira",
+    "category" : "Ferramentas",
+    "brand" : "Black & Decker",
+    "price" : 500.0,
+    "quantity" : 7,
+    "freeShipping" : true,
+    "prestige" : "****"
+  } ]
+}, {
+  "id" : 9,
+  "totalPrice" : 12500.0,
+  "productList" : [ {
+    "productId" : 1,
+    "name" : "Serra de Bancada",
+    "category" : "Ferramentas",
+    "brand" : "FORTGPRO",
+    "price" : 1800.0,
+    "quantity" : 5,
+    "freeShipping" : true,
+    "prestige" : "****"
+  }, {
+    "productId" : 2,
+    "name" : "Furadeira",
+    "category" : "Ferramentas",
+    "brand" : "Black & Decker",
+    "price" : 500.0,
+    "quantity" : 7,
+    "freeShipping" : true,
+    "prestige" : "****"
+  } ]
+}, {
+  "id" : 10,
+  "totalPrice" : 12500.0,
+  "productList" : [ {
+    "productId" : 1,
+    "name" : "Serra de Bancada",
+    "category" : "Ferramentas",
+    "brand" : "FORTGPRO",
+    "price" : 1800.0,
+    "quantity" : 5,
+    "freeShipping" : true,
+    "prestige" : "****"
+  }, {
+    "productId" : 2,
+    "name" : "Furadeira",
+    "category" : "Ferramentas",
+    "brand" : "Black & Decker",
+    "price" : 500.0,
+    "quantity" : 7,
+    "freeShipping" : true,
+    "prestige" : "****"
+  } ]
+}, {
+  "id" : 11,
+  "totalPrice" : 12500.0,
+  "productList" : [ {
+    "productId" : 1,
+    "name" : "Serra de Bancada",
+    "category" : "Ferramentas",
+    "brand" : "FORTGPRO",
+    "price" : 1800.0,
+    "quantity" : 5,
+    "freeShipping" : true,
+    "prestige" : "****"
+  }, {
+    "productId" : 2,
+    "name" : "Furadeira",
+    "category" : "Ferramentas",
+    "brand" : "Black & Decker",
+    "price" : 500.0,
+    "quantity" : 7,
+    "freeShipping" : true,
+    "prestige" : "****"
+  } ]
+}, {
+  "id" : 12,
+  "totalPrice" : 12500.0,
+  "productList" : [ {
+    "productId" : 1,
+    "name" : "Serra de Bancada",
+    "category" : "Ferramentas",
+    "brand" : "FORTGPRO",
+    "price" : 1800.0,
+    "quantity" : 5,
+    "freeShipping" : true,
+    "prestige" : "****"
+  }, {
+    "productId" : 2,
+    "name" : "Furadeira",
+    "category" : "Ferramentas",
+    "brand" : "Black & Decker",
+    "price" : 500.0,
+    "quantity" : 7,
+    "freeShipping" : true,
+    "prestige" : "****"
+  } ]
+}, {
+  "id" : 13,
+  "totalPrice" : 2250.0,
+  "productList" : [ {
+    "productId" : 3,
+    "name" : "Soldadora",
+    "category" : "Ferramentas",
+    "brand" : "Black & Decker",
+    "price" : 350.0,
+    "quantity" : 5,
+    "freeShipping" : true,
+    "prestige" : "***"
+  }, {
+    "productId" : 2,
+    "name" : "Furadeira",
+    "category" : "Ferramentas",
+    "brand" : "Black & Decker",
+    "price" : 500.0,
+    "quantity" : 1,
+    "freeShipping" : true,
+    "prestige" : "****"
+  } ]
+}, {
+  "id" : 14,
+  "totalPrice" : 2250.0,
+  "productList" : [ {
+    "productId" : 3,
+    "name" : "Soldadora",
+    "category" : "Ferramentas",
+    "brand" : "Black & Decker",
+    "price" : 350.0,
+    "quantity" : 5,
+    "freeShipping" : true,
+    "prestige" : "***"
+  }, {
+    "productId" : 2,
+    "name" : "Furadeira",
+    "category" : "Ferramentas",
+    "brand" : "Black & Decker",
+    "price" : 500.0,
+    "quantity" : 1,
+    "freeShipping" : true,
+    "prestige" : "****"
+  } ]
+}, {
+  "id" : 15,
+  "totalPrice" : 1358.0,
+  "productList" : [ {
+    "productId" : 4,
+    "name" : "Chuteira",
+    "category" : "Esportes",
+    "brand" : "Adidas",
+    "price" : 235.0,
+    "quantity" : 5,
+    "freeShipping" : true,
+    "prestige" : "*****"
+  }, {
+    "productId" : 5,
+    "name" : "Mini Cama elastica",
+    "category" : "Esportes",
+    "brand" : "Starboard",
+    "price" : 183.0,
+    "quantity" : 1,
+    "freeShipping" : true,
+    "prestige" : "*****"
+  } ]
+}, {
+  "id" : 16,
+  "totalPrice" : 14183.0,
+  "productList" : [ {
+    "productId" : 7,
+    "name" : "Redmi Note 9",
+    "category" : "Celulares",
+    "brand" : "Xiaomi",
+    "price" : 2800.0,
+    "quantity" : 5,
+    "freeShipping" : true,
+    "prestige" : "****"
+  }, {
+    "productId" : 5,
+    "name" : "Mini Cama elastica",
+    "category" : "Esportes",
+    "brand" : "Starboard",
+    "price" : 183.0,
+    "quantity" : 1,
+    "freeShipping" : true,
+    "prestige" : "*****"
+  } ]
+}, {
+  "id" : 17,
+  "totalPrice" : 15200.0,
+  "productList" : [ {
+    "productId" : 7,
+    "name" : "Redmi Note 9",
+    "category" : "Celulares",
+    "brand" : "Xiaomi",
+    "price" : 2800.0,
+    "quantity" : 5,
+    "freeShipping" : true,
+    "prestige" : "****"
+  }, {
+    "productId" : 8,
+    "name" : "Smartwatch",
+    "category" : "Celulares",
+    "brand" : "Noga",
+    "price" : 1200.0,
+    "quantity" : 1,
+    "freeShipping" : true,
+    "prestige" : "**"
+  } ]
+}, {
+  "id" : 18,
+  "totalPrice" : 17600.0,
+  "productList" : [ {
+    "productId" : 7,
+    "name" : "Redmi Note 9",
+    "category" : "Celulares",
+    "brand" : "Xiaomi",
+    "price" : 2800.0,
+    "quantity" : 5,
+    "freeShipping" : true,
+    "prestige" : "****"
+  }, {
+    "productId" : 8,
+    "name" : "Smartwatch",
+    "category" : "Celulares",
+    "brand" : "Noga",
+    "price" : 1200.0,
+    "quantity" : 3,
+    "freeShipping" : true,
+    "prestige" : "**"
+  } ]
+}, {
+  "id" : 19,
+  "totalPrice" : 17600.0,
+  "productList" : [ {
+    "productId" : 7,
+    "name" : "Redmi Note 9",
+    "category" : "Celulares",
+    "brand" : "Xiaomi",
+    "price" : 2800.0,
+    "quantity" : 5,
+    "freeShipping" : true,
+    "prestige" : "****"
+  }, {
+    "productId" : 8,
+    "name" : "Smartwatch",
+    "category" : "Celulares",
+    "brand" : "Noga",
+    "price" : 1200.0,
+    "quantity" : 3,
+    "freeShipping" : true,
+    "prestige" : "**"
+  } ]
+}, {
+  "id" : 20,
+  "totalPrice" : 395.0,
+  "productList" : [ {
+    "productId" : 10,
+    "name" : "Calcas",
+    "category" : "Roupas",
+    "brand" : "Oakley",
+    "price" : 73.0,
+    "quantity" : 5,
+    "freeShipping" : false,
+    "prestige" : "***"
+  }, {
+    "productId" : 11,
+    "name" : "Meias",
+    "category" : "Roupas",
+    "brand" : "Gonew",
+    "price" : 10.0,
+    "quantity" : 3,
+    "freeShipping" : false,
+    "prestige" : "*"
+  } ]
+}, {
+  "id" : 21,
+  "totalPrice" : 395.0,
+  "productList" : [ {
+    "productId" : 10,
+    "name" : "Calcas",
+    "category" : "Roupas",
+    "brand" : "Oakley",
+    "price" : 73.0,
+    "quantity" : 5,
+    "freeShipping" : false,
+    "prestige" : "***"
+  }, {
+    "productId" : 11,
+    "name" : "Meias",
+    "category" : "Roupas",
+    "brand" : "Gonew",
+    "price" : 10.0,
+    "quantity" : 3,
+    "freeShipping" : false,
+    "prestige" : "*"
+  } ]
+}, {
+  "id" : 22,
+  "totalPrice" : 143.0,
+  "productList" : [ {
+    "productId" : 10,
+    "name" : "Calcas",
+    "category" : "Roupas",
+    "brand" : "Oakley",
+    "price" : 73.0,
+    "quantity" : 1,
+    "freeShipping" : false,
+    "prestige" : "***"
+  }, {
+    "productId" : 11,
+    "name" : "Meias",
+    "category" : "Roupas",
+    "brand" : "Gonew",
+    "price" : 10.0,
+    "quantity" : 7,
+    "freeShipping" : false,
+    "prestige" : "*"
+  } ]
 } ]

@@ -1,5 +1,6 @@
 package com.grupo8.ecomerce.service;
 
+import com.grupo8.ecomerce.exceptions.NotAllowed;
 import com.grupo8.ecomerce.model.Order;
 import com.grupo8.ecomerce.model.Product;
 import com.grupo8.ecomerce.model.Purchase;
@@ -44,12 +45,12 @@ public class OrderServiceImp implements OrderService {
      */
     @Override
     public Order createOrder(List<Purchase> purchaseList) {
-        productService.updateProducts(purchaseList);
         Order order = new Order();
         order.setId((long) (orderRepository.getAllOrders().size() + 1));
         order.setProductList(getDetailedProducts(purchaseList));
-        order.setTotalPrice(getTotalPrice(getDetailedProducts(purchaseList)));
+        order.setTotalPrice(getTotalPrice(order.getProductList()));
         orderRepository.createOrder(order);
+        productService.updateProducts(purchaseList);
         return order;
     }
 
@@ -59,13 +60,21 @@ public class OrderServiceImp implements OrderService {
  * @return Lista completa dos produtos comprados.
  */
     private List<Product> getDetailedProducts(List<Purchase> purchaseList) {
-        return purchaseList.stream()
+        List<Product> purchaseListToReturn = null;
+        try {
+                purchaseListToReturn = purchaseList.stream()
                 .map(purchase -> {
                     Product foundedProduct = productService.getAllProducts().stream()
                             .filter(product -> product.getProductId().equals(purchase.getProductId()))
                             .collect(Collectors.toList()).get(0);
+
                         foundedProduct.setQuantity(purchase.getQuantity());
+
                         return foundedProduct;
                 }).collect(Collectors.toList());
+        } catch (Exception e) {
+            throw new NotAllowed("ProductId inexistente no banco de dados");
+        }
+        return purchaseListToReturn;
     }
 }
