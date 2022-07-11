@@ -1,0 +1,26 @@
+[ {
+  "id" : 4,
+  "name" : "Sophia Ronzoni",
+  "cpf" : "123.456.789-88",
+  "state" : "PR"
+}, {
+  "id" : 2,
+  "name" : "Sophia Ronzoni",
+  "cpf" : "123.456.789-88",
+  "state" : "PR"
+}, {
+  "id" : 5,
+  "name" : "Sophia Ronzoni",
+  "cpf" : "123.456.789-88",
+  "state" : "PR"
+}, {
+  "id" : 1,
+  "name" : "Sophia Ronzoni",
+  "cpf" : "123.456.789-88",
+  "state" : "SC"
+}, {
+  "id" : 3,
+  "name" : "Otto ALbuquerque",
+  "cpf" : "123.456.789-88",
+  "state" : "RJ"
+} ]
